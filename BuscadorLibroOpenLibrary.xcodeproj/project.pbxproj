@@ -8,22 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		699E58371D052503009EB41E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699E58361D052503009EB41E /* AppDelegate.swift */; };
-		699E58391D052503009EB41E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699E58381D052503009EB41E /* ViewController.swift */; };
 		699E583C1D052503009EB41E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 699E583A1D052503009EB41E /* Main.storyboard */; };
 		699E583F1D052503009EB41E /* BuscadorLibroOpenLibrary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 699E583D1D052503009EB41E /* BuscadorLibroOpenLibrary.xcdatamodeld */; };
 		699E58411D052503009EB41E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 699E58401D052503009EB41E /* Assets.xcassets */; };
 		699E58441D052503009EB41E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 699E58421D052503009EB41E /* LaunchScreen.storyboard */; };
+		699E584C1D052889009EB41E /* Libro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699E584B1D052889009EB41E /* Libro.swift */; };
+		699E58501D052A4E009EB41E /* LibroTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699E584F1D052A4E009EB41E /* LibroTableViewController.swift */; };
+		699E58521D052FFF009EB41E /* DetalleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699E58511D052FFF009EB41E /* DetalleViewController.swift */; };
+		69AB4EF01D060ECD004491D4 /* sin_portada.png in Resources */ = {isa = PBXBuildFile; fileRef = 69AB4EEF1D060ECD004491D4 /* sin_portada.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		699E58331D052503009EB41E /* BuscadorLibroOpenLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuscadorLibroOpenLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		699E58361D052503009EB41E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		699E58381D052503009EB41E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		699E583B1D052503009EB41E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		699E583E1D052503009EB41E /* BuscadorLibroOpenLibrary.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BuscadorLibroOpenLibrary.xcdatamodel; sourceTree = "<group>"; };
 		699E58401D052503009EB41E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		699E58431D052503009EB41E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		699E58451D052503009EB41E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		699E584B1D052889009EB41E /* Libro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Libro.swift; sourceTree = "<group>"; };
+		699E584F1D052A4E009EB41E /* LibroTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LibroTableViewController.swift; path = ../LibroTableViewController.swift; sourceTree = "<group>"; };
+		699E58511D052FFF009EB41E /* DetalleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetalleViewController.swift; sourceTree = "<group>"; };
+		69AB4EEF1D060ECD004491D4 /* sin_portada.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sin_portada.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,13 +62,16 @@
 		699E58351D052503009EB41E /* BuscadorLibroOpenLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				699E584F1D052A4E009EB41E /* LibroTableViewController.swift */,
 				699E58361D052503009EB41E /* AppDelegate.swift */,
-				699E58381D052503009EB41E /* ViewController.swift */,
 				699E583A1D052503009EB41E /* Main.storyboard */,
 				699E58401D052503009EB41E /* Assets.xcassets */,
 				699E58421D052503009EB41E /* LaunchScreen.storyboard */,
 				699E58451D052503009EB41E /* Info.plist */,
 				699E583D1D052503009EB41E /* BuscadorLibroOpenLibrary.xcdatamodeld */,
+				699E584B1D052889009EB41E /* Libro.swift */,
+				699E58511D052FFF009EB41E /* DetalleViewController.swift */,
+				69AB4EEF1D060ECD004491D4 /* sin_portada.png */,
 			);
 			path = BuscadorLibroOpenLibrary;
 			sourceTree = "<group>";
@@ -127,6 +136,7 @@
 			files = (
 				699E58441D052503009EB41E /* LaunchScreen.storyboard in Resources */,
 				699E58411D052503009EB41E /* Assets.xcassets in Resources */,
+				69AB4EF01D060ECD004491D4 /* sin_portada.png in Resources */,
 				699E583C1D052503009EB41E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,8 +148,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				699E58391D052503009EB41E /* ViewController.swift in Sources */,
+				699E58521D052FFF009EB41E /* DetalleViewController.swift in Sources */,
+				699E58501D052A4E009EB41E /* LibroTableViewController.swift in Sources */,
 				699E58371D052503009EB41E /* AppDelegate.swift in Sources */,
+				699E584C1D052889009EB41E /* Libro.swift in Sources */,
 				699E583F1D052503009EB41E /* BuscadorLibroOpenLibrary.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -290,6 +302,7 @@
 				699E584A1D052503009EB41E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
