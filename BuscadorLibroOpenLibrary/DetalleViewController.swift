@@ -22,40 +22,27 @@ class DetalleViewController: UIViewController, UISearchBarDelegate {
         super.viewDidLoad()
         botonGuardar.enabled = false
         if libro != nil {
+            barraBusqueda.hidden = true
             tituloLibro.text = libro?.titulo
             autoresText.text = libro?.listaAutores()
-            if let url = NSURL( string: (libro?.urlImagen)! ) {
-                if let dataImage = NSData(contentsOfURL: url ) {
-                    imagenLibro.image = UIImage(data: dataImage)
-                }
+            
+            if let dataImage = libro?.imagen {
+                imagenLibro.image = UIImage(data: dataImage)
             }
         } else {
+            
             limpiarGui()
         }
     
     }
 
 
-    
     // MARK: - Navigation
 
     @IBAction func cancelar(sender: UIBarButtonItem) {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-/*
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if botonGuardar === sender {
-            let titulo = tituloLibro.text ?? ""
-            let autores = autoresText.text
-            //let imgUrl =
-            // crear un nuevo libro
-            
-        }
- 
-    }
-    
-*/
     
     func limpiarGui() {
         tituloLibro.text = nil
@@ -115,6 +102,7 @@ class DetalleViewController: UIViewController, UISearchBarDelegate {
                             // Asignar titulo del libro
                             botonGuardar.enabled = true
                             if let titulo = dicLibro[ "title"] {
+                                
                                 self.tituloLibro.text = titulo as? String
                             }
                             
@@ -122,7 +110,7 @@ class DetalleViewController: UIViewController, UISearchBarDelegate {
                             
                             // Asignar autores
                             if let listaAutores = dicLibro[ "authors" ]  {
-                                
+                              
                                 for autor in listaAutores as! NSArray {
                                     autores += autor[ "name" ] as! String
                                     autores += "\n"
@@ -135,9 +123,12 @@ class DetalleViewController: UIViewController, UISearchBarDelegate {
                             // Asignar portada de libroe
                             if let portadas = dicLibro[ "cover" ] as! NSDictionary? {
                                 if let url = NSURL(string: portadas["small"] as! String) {
+                                    
                                     let dataImage = NSData(contentsOfURL: url)
-                                    libro!.urlImagen = portadas["small"] as? String
-                                    imagenLibro.image = UIImage(data: dataImage!)
+                                    libro?.imagen = dataImage
+                                    dispatch_async( dispatch_get_main_queue(), {
+                                        self.imagenLibro.image = UIImage(data: dataImage!)
+                                    } )
                                     
                                 }
                             }
@@ -156,9 +147,11 @@ class DetalleViewController: UIViewController, UISearchBarDelegate {
             // mostrar mensaje de error
             if !msgError.isEmpty {
                 botonGuardar.enabled = false
-                let alert = UIAlertController(title: "Error", message: msgError, preferredStyle: .Alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
-                self.presentViewController(alert, animated: true, completion: nil)
+                dispatch_async( dispatch_get_main_queue(), {
+                    let alert = UIAlertController(title: "Error", message: msgError, preferredStyle: .Alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                } )
                 
             }
             

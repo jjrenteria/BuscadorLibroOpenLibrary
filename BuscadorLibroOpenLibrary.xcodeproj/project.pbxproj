@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		697E3A611D149EA9006537C7 /* Autor+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697E3A5D1D149EA9006537C7 /* Autor+CoreDataProperties.swift */; };
+		697E3A621D149EA9006537C7 /* Autor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697E3A5E1D149EA9006537C7 /* Autor.swift */; };
+		697E3A631D149EA9006537C7 /* Book+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697E3A5F1D149EA9006537C7 /* Book+CoreDataProperties.swift */; };
+		697E3A641D149EA9006537C7 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697E3A601D149EA9006537C7 /* Book.swift */; };
 		699E58371D052503009EB41E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699E58361D052503009EB41E /* AppDelegate.swift */; };
 		699E583C1D052503009EB41E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 699E583A1D052503009EB41E /* Main.storyboard */; };
 		699E583F1D052503009EB41E /* BuscadorLibroOpenLibrary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 699E583D1D052503009EB41E /* BuscadorLibroOpenLibrary.xcdatamodeld */; };
@@ -19,6 +23,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		697E3A5D1D149EA9006537C7 /* Autor+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Autor+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		697E3A5E1D149EA9006537C7 /* Autor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Autor.swift; sourceTree = "<group>"; };
+		697E3A5F1D149EA9006537C7 /* Book+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Book+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		697E3A601D149EA9006537C7 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		699E58331D052503009EB41E /* BuscadorLibroOpenLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuscadorLibroOpenLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		699E58361D052503009EB41E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		699E583B1D052503009EB41E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -43,6 +51,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		697E3A541D1497A9006537C7 /* ModeloDatos */ = {
+			isa = PBXGroup;
+			children = (
+				697E3A5D1D149EA9006537C7 /* Autor+CoreDataProperties.swift */,
+				697E3A5E1D149EA9006537C7 /* Autor.swift */,
+				697E3A5F1D149EA9006537C7 /* Book+CoreDataProperties.swift */,
+				697E3A601D149EA9006537C7 /* Book.swift */,
+			);
+			name = ModeloDatos;
+			sourceTree = "<group>";
+		};
 		699E582A1D052503009EB41E = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +81,7 @@
 		699E58351D052503009EB41E /* BuscadorLibroOpenLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				697E3A541D1497A9006537C7 /* ModeloDatos */,
 				699E584F1D052A4E009EB41E /* LibroTableViewController.swift */,
 				699E58361D052503009EB41E /* AppDelegate.swift */,
 				699E583A1D052503009EB41E /* Main.storyboard */,
@@ -149,9 +169,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				699E58521D052FFF009EB41E /* DetalleViewController.swift in Sources */,
+				697E3A621D149EA9006537C7 /* Autor.swift in Sources */,
 				699E58501D052A4E009EB41E /* LibroTableViewController.swift in Sources */,
 				699E58371D052503009EB41E /* AppDelegate.swift in Sources */,
+				697E3A611D149EA9006537C7 /* Autor+CoreDataProperties.swift in Sources */,
+				697E3A641D149EA9006537C7 /* Book.swift in Sources */,
 				699E584C1D052889009EB41E /* Libro.swift in Sources */,
+				697E3A631D149EA9006537C7 /* Book+CoreDataProperties.swift in Sources */,
 				699E583F1D052503009EB41E /* BuscadorLibroOpenLibrary.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

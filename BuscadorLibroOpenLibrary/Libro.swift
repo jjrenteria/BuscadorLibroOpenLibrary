@@ -7,13 +7,14 @@
 //
 
 import Foundation
+import UIKit
 
 class Libro {
     
     var isbn: String
     var titulo: String
     var autores: [String] = []
-    var urlImagen: String?
+    var imagen: NSData?
     
     init(isbn:String, titulo:String) {
         self.isbn = isbn
@@ -26,6 +27,10 @@ class Libro {
             cadena += a + "\r"
         }
         return cadena
+    }
+    
+    func portada() -> UIImage? {
+        return UIImage(data: imagen!)
     }
 
 }

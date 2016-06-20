@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class LibroTableViewController: UITableViewController {
     
@@ -14,10 +15,15 @@ class LibroTableViewController: UITableViewController {
     var listaLibros: [Libro] = []
     var libro : Libro?
     var habilitarAgregar = false
+    var managedObjectContext: NSManagedObjectContext?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        managedObjectContext = appDelegate.managedObjectContext
+        listaLibros = obtenerLibros()
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -32,7 +38,6 @@ class LibroTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return listaLibros.count
     }
 
@@ -58,11 +63,58 @@ class LibroTableViewController: UITableViewController {
     
     @IBAction func unwindToLibrolLista(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.sourceViewController as? DetalleViewController, libro = sourceViewController.libro {
-            let newIndexPath = NSIndexPath(forRow: listaLibros.count, inSection: 0)
-            listaLibros.append(libro)
-            tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
+            let existe = Book.buscaLibro(libro.isbn, managedContext: managedObjectContext!)
+          
+            if !existe {
+                let newIndexPath = NSIndexPath(forRow: listaLibros.count, inSection: 0)
+            // Agrega el libro y sus datos 
+                let book = Book.inserta(libro.isbn, titulo: libro.titulo, portada: libro.imagen!, managedContext: managedObjectContext!)
+                for aut in libro.autores {
+                    let autor = Autor.inserta(aut, libro: book, managedContext: managedObjectContext!)
+                }
+                do {
+                    try managedObjectContext?.save()
+                } catch {
+                    print("error al guardar el libro")
+                }
+
+                listaLibros.append(libro)
+            
+                tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
+            }
             
         }
+    }
+    
+    //Obtiene los libros almacenados en la entidad Book
+    
+    func obtenerLibros() -> [Libro] {
+        var lista: [Libro] = []
+        
+        let entity: NSEntityDescription = NSEntityDescription.entityForName("Book", inManagedObjectContext: managedObjectContext! )!
+        let fetchRequest: NSFetchRequest = NSFetchRequest()
+        fetchRequest.entity = entity
+        
+        do {
+            let libros = try managedObjectContext!.executeFetchRequest(fetchRequest) as! [Book]
+            
+            for book in libros {
+                var autorList:[String] = []
+                for autor in book.autores! {
+                    let nombre = (autor as! Autor).nombre
+                    autorList.append( nombre! )
+                }
+                
+                let libro = Libro(isbn: book.isbn!, titulo: book.titulo! )
+                libro.imagen = book.portada
+                libro.autores = autorList
+                lista.append( libro )
+            }
+            
+        } catch {
+            print( "Error al ejecutar el query" )
+        }
+        return lista
     }
     
 }
